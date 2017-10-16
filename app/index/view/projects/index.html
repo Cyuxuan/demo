@@ -1,0 +1,102 @@
+{extend name="layout" /}
+{block name="content"}
+
+<div>
+  <!-- 项目案例大图展示页 -->
+  <div class="project" >
+    {volist name="bdata" id="bdataInfo"}
+    <img src={$bdataInfo.imgName} alt="">
+    {/volist}
+  </div>
+
+
+
+<!-- 案例类型 -->
+<div class="project_mode_div" id="project_mode_div" style="">
+<!-- 使用循环输出页面样式 -->
+  <!-- <script type="text/javascript">
+    var mysty = document.getElementById('project_mode_div');
+  </script>
+    {volist name="stydata" id="stydataInfo"}
+      {if condition=" $stydataInfo['class_name'] == 'project_mode_div' "}
+      <script type="text/javascript">
+        mysty.style.{$stydataInfo['style_name']} ="{$stydataInfo['style']}";
+      </script>
+      {/if}
+    {/volist} -->
+  <!--  -->
+
+
+  <a href="test"><a href="{:url('projects/index#test',array('tableName' => 'android_info'))}"><div class="project_mode">
+    <h2>安卓APP开发<br>案例</h2>
+  </div></a></a>
+
+  <a href="{:url('projects/index#test',array('tableName' => 'ios_info'))}"><div class="project_mode">
+    <h2>IOS APP开发<br>案例</h2>
+  </div></a>
+
+  <a href="{:url('projects/index#test',array('tableName' => 'pcweb_info'))}"><div class="project_mode">
+    <h2>PC 网站开发<br>案例</h2>
+  </div></a>
+
+  <a href="{:url('projects/index#test',array('tableName' => 'wechat_info'))}"><div class="project_mode">
+    <h2>微信平台定制<br>案例</h2>
+  </div></a>
+
+
+</div>
+<!--  -->
+
+
+
+<!-- 案例模块 -->
+<a name="tag"><div class="project_volist" style="font-size:0;">
+<!-- 循环输出案例 -->
+<!-- <table style="width:inherit;background-color:blue; text-align:center;"> -->
+<a name="test"></a>
+  {volist name="data" id="volistid"}
+
+  {if condition=" $i == 1"}
+    <ul style="text-align:left;background-color:blue;display:block;padding:0;">
+  {/if}
+
+  <li style="display:inline-block;background-color:black;margin:30px;">
+  <div class="project_div1">
+
+    {if condition="isset($volistid.img_name)"}
+    <a href="#"><div class="project_div2">
+      <!-- {if condition="isset($volistid.img_text)"}
+      <h1 class="project_h1"  id="project_h1{$i}">{$volistid.img_text}</h1>
+      {/if} -->
+      <img src={$volistid.img_name} alt="">
+    </div></a>
+    {/if}
+
+    {if condition="isset($volistid.img_describe)"}
+      <p style="font-size:14px;">{$volistid.img_describe}{$i}</p>
+    {/if}
+  </div>
+  </li>
+
+  {if condition="$i % 3 == 0 && $i != 0"}
+    </ul>
+      <hr/>
+    <ul style="text-align:left;background-color:blue;padding:0;">
+  {/if}
+
+{/volist}
+
+<!-- </table> -->
+
+
+</div></a>
+<!--  -->
+<!--  -->
+
+</div>
+
+<div class="footer">
+  asd
+</div>
+
+{/block}
